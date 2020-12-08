@@ -1,0 +1,6 @@
+#setup key first, using your github email
+ssh-keygen -t ed25519 -C "5956604+jcmcncDDh@users.noreply.github.com"
+#add the following to ~/.bashrc
+alias sshsetup='eval `ssh-agent -s` ; ssh-add ~/.ssh/id_ed25519'
+source ~/.bashrc #to apply changes
+
