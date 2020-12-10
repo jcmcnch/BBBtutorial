@@ -3,4 +3,7 @@ ssh-keygen -t ed25519 -C "5956604+jcmcncDDh@users.noreply.github.com"
 #add the following to ~/.bashrc
 alias sshsetup='eval `ssh-agent -s` ; ssh-add ~/.ssh/id_ed25519'
 source ~/.bashrc #to apply changes
-
+#now copy your public ssh key to your github web account. vi and basic copy and paste worked for me:
+vi ~/.ssh/id_ed25519.pub
+#sometimes things don't get copied properly, see github website tutorials for more info on using things like xclip
+#now you should be able to push/pull from your remote repositories on the command line

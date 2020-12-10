@@ -1,0 +1,27 @@
+#install conda
+
+#install mamba
+conda install -c conda-forge mamba
+
+#install jupyter lab/notebook
+#mamba install -c conda-forge jupyterlab
+mamba install -c conda-forge notebook
+
+#install R kernel
+mamba install -c r r-irkernel 
+
+#make new R environment
+conda create -n r_env r-essentials r-base
+
+######################
+### CMAP4R install ###
+######################
+
+#IN BASE CONDA:
+mamba install nb_conda_kernels
+
+#how I installed cmap4r, boy this was a doozy
+#three-liner: 
+conda create -n r-cmap r-base && conda activate r-cmap && conda install -c conda-forge mamba -y && mamba install -c r r-irkernel -y && mamba install -c conda-forge udunits2 -y && mamba install -c conda-forge libsodium -y && mamba install -c conda-forge libgdal -y
+# > install.packages(c("codetools", "devtools", "dplyr", "sf", "ggplot2", "plotly"))
+# > devtools::install_github("simonscmap/cmap4r/cmap4r")
