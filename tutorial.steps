@@ -2,6 +2,8 @@
 #first, make sure you're in your "base" directory
 #`which mamba` should show your local conda install
 conda install -c conda-forge mamba
+#if you're on Windows, you may have to install wget:
+conda install -c conda-forge wget 
 wget https://data.qiime2.org/distro/core/qiime2-2020.11-py36-linux-conda.yml
 #take a look at the yaml file
 mamba env create -n qiime2-2020.11 --file qiime2-2020.11-py36-linux-conda.yml
@@ -10,9 +12,11 @@ mamba env create -n qiime2-2020.11 --file qiime2-2020.11-py36-linux-conda.yml
 conda create --name bbmap-env
 conda activate bbmap-env
 conda install -c conda-forge mamba
+mamba install -c bioconda bbmap 
 #with this step completed, you can now use the qiime2 workflow
 #try exporting this environment to yaml with and without --no-builds flag
-
+#for issues installing, try:
+conda update -n base conda
 
 
 #now let's install the tweak for getting the UC file from VSEARCH OTU clustering
@@ -26,7 +30,6 @@ make dev && make test
 #the preceding command installs "my" vsearch to your qiime2-dev installation
 qiime dev refresh-cache
 #refreshing so the "hacked" vsearch is used
-
 #detailed instructions and context here: https://forum.qiime2.org/t/vsearch-de-novo-output-uc-option/16697/9
 
 #now, we can try to install another package from "source"
